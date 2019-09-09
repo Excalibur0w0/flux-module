@@ -4,7 +4,7 @@ const BaseDispatcher = require("./BaseDispatcher");
 class BaseModule extends EventEmitter {
 	constructor() {
 		super();
-		this.dispatcher = this.createDispatcher();
+		this.createDispatcher();
 		// 注册调度，通过switch或者其他方式，执行对应的函数，这里交给了mutation的map解决
 		this.dispatcher.register(action => {
 			if (!this.mutations) {
@@ -32,10 +32,12 @@ class BaseModule extends EventEmitter {
 		// this.action = new Action(this);
 	}
 	createDispatcher() {
-		return new BaseDispatcher();
+		this.dispatcher = new BaseDispatcher();
+		return this;
 	}
 	createState(state) {
 		this.state = state;
+		return this;
 	}
 	// 关键暴露口
 	getState() {
