@@ -1,0 +1,22 @@
+{
+	"name": "flux-module",
+	"version": "0.0.2",
+	"description": "a module of flux",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Excalibur0w0/flux-module.git"
+	},
+	"author": "excalibur0w0",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Excalibur0w0/flux-module/issues"
+	},
+	"homepage": "https://github.com/Excalibur0w0/flux-module#readme",
+	"devDependencies": {
+		"flux": "^3.1.3"
+	}
+}
