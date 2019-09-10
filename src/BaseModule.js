@@ -50,9 +50,11 @@ class BaseModule extends EventEmitter {
 	}
 	bindMutations(mutations) {
 		this.mutations = mutations;
+		return this;
 	}
 	bindActions(actions) {
 		this.actions = actions;
+		return this;
 	}
 }
 
