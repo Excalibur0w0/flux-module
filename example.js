@@ -7,6 +7,7 @@ const TEST = "TEST";
 
 class TestAction extends Action {
 	setTest() {
+		// 提交给对应映射的mutation， 这里可以改成通过mutation的名称
 		this.commit(TEST, "value");
 	}
 }
@@ -34,9 +35,8 @@ class TestModule extends BaseModule {
 	}
 }
 
-let testModule = new TestModule()
-	.createMutations(TestMutation)
-	.createActions(TestAction);
+let testModule = new TestModule();
+
 // equal
 let testModule2 = new BaseModule()
 	.createState({ test: "origin2" })
