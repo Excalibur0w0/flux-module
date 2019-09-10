@@ -27,9 +27,6 @@ class BaseModule extends EventEmitter {
 				);
 			}
 		});
-		// this.createState();
-		// this.mutations = new Mutation();
-		// this.action = new Action(this);
 	}
 	createDispatcher() {
 		this.dispatcher = new BaseDispatcher();
@@ -48,8 +45,14 @@ class BaseModule extends EventEmitter {
 		return this;
 	}
 	createActions(ActionClass) {
-		this.action = new ActionClass(this);
+		this.actions = new ActionClass(this);
 		return this;
+	}
+	bindMutations(mutations) {
+		this.mutations = mutations;
+	}
+	bindActions(actions) {
+		this.actions = actions;
 	}
 }
 

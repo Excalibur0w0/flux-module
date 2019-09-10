@@ -43,9 +43,9 @@ class TestModule extends BaseModule {
 let testModule = new TestModule();
 
 console.log(testModule.getState());
-testModule.action.setTest();
+testModule.actions.setTest();
 console.log(testModule.getState());
 
 exports.testModule = testModule;
-exports.testAction = testModule.action;
+exports.testAction = testModule.actions;
 exports.testMutation = testModule.mutations;
