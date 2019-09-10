@@ -23,16 +23,28 @@ class TestMutation extends Mutation {
 	}
 }
 
-const testModule = new BaseModule()
-	.createState({
-		test: "origin",
-	})
-	.createActions(TestAction)
+class TestModule extends BaseModule {
+	constructor() {
+		super();
+		this.state = {
+			test: "origin",
+		};
+		this.createActions(TestAction);
+		this.createActions(TestMutation);
+	}
+}
+
+let testModule = new TestModule()
 	.createMutations(TestMutation)
-	.on(TEST, result => {
-		console.log(result);
-	});
+	.createActions(TestAction);
+// equal
+let testModule2 = new BaseModule()
+	.createState({ test: "origin2" })
+	.createMutations(TestMutation)
+	.createActions(TestAction);
 
 console.log(testModule.getState());
 testModule.action.setTest();
 console.log(testModule.getState());
+
+module.exports = testModule;
