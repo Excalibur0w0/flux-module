@@ -9,9 +9,9 @@ class BaseModule extends EventEmitter {
 		this.dispatcher.register(action => {
 			if (!this.mutations) {
 				console.error(
-					"the mutations does not exist in module: " +
-						this.__proto__.constructor +
-						"!",
+					"\x1B[31m error: the mutations does not exist in module: " +
+						this.__proto__.constructor.name +
+						"!\x1B[37m",
 				);
 				return;
 			}
@@ -21,9 +21,9 @@ class BaseModule extends EventEmitter {
 				this.emit(action.type, result);
 			} else {
 				console.error(
-					"the mutation [" +
+					"\x1B[31m error: the mutation [" +
 						action.type +
-						"] is not a function or null ",
+						"] is not a function or null! !\x1B[37m",
 				);
 			}
 		});
