@@ -1,5 +1,4 @@
 const Action = require("./src/Action");
-const BaseDispatcher = require("./src/BaseDispatcher");
 const Mutation = require("./src/Mutation");
 const BaseModule = require("./src/BaseModule");
 
@@ -40,10 +39,13 @@ class TestModule extends BaseModule {
 // 	.createState({ test: "origin2" })
 // 	.createMutations(TestMutation)
 // 	.createActions(TestAction);
+// -----------------------------------------------------------
 let testModule = new TestModule();
 
 console.log(testModule.getState());
 testModule.action.setTest();
 console.log(testModule.getState());
 
-module.exports = testModule;
+exports.testModule = testModule;
+exports.testAction = testModule.action;
+exports.testMutation = testModule.mutations;
